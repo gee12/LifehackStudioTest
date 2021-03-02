@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lifehack Studio Test</string>
+    <string name="incorrect_server_response">Incorrect server response</string>
+    <string name="error_failure_info">Failed to load company information</string>
+    <string name="error_failure_list">Failed to load the list of companies</string>
+    <string name="error_server_response">Error receiving a response from the server</string>
+    <string name="location_mask"><![CDATA[<a href=\'geo:%f,%f\'>Find on the map</a>]]></string>
+    <string name="label_companies">Companies</string>
+    <string name="label_company">Company</string>
+    <string name="error_open_company">Failed to open company</string>
+</resources>

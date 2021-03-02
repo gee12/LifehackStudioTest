@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Лайфхак Студио Тест</string>
+    <string name="incorrect_server_response">Некорректный ответ сервера</string>
+    <string name="error_failure_info">Не удалось загрузить информацию о компании</string>
+    <string name="error_failure_list">Не удалось загрузить список компаний</string>
+    <string name="error_server_response">Ошибка получения ответа от сервера</string>
+    <string name="location_mask"><![CDATA[<a href=\'geo:%f,%f\'>Найти на карте</a>]]></string>
+    <string name="label_companies">Компании</string>
+    <string name="label_company">Компания</string>
+    <string name="error_open_company">Ошибка открытия карточки компании</string>
+</resources>

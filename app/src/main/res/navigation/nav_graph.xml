@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/companiesFragment">
+
+    <fragment
+        android:id="@+id/companiesFragment"
+        android:name="studio.lifehack.test.ui.company.CompaniesFragment"
+        android:label="@string/label_companies"
+        tools:layout="@layout/fragment_companies" >
+        <action
+            android:id="@+id/showDetailsFragment"
+            app:destination="@id/detailsFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="studio.lifehack.test.ui.details.DetailsFragment"
+        android:label="@string/label_company"
+        tools:layout="@layout/fragment_details" >
+        <argument android:name="companyId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+</navigation>
