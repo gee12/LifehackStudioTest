@@ -60,19 +60,24 @@ class DetailsFragment : BaseFragment() {
     private fun initViews(view: View, company: Company) {
         view.findViewById<TextView>(R.id.tv_company_name).text = company.name
         company.www?.let {
-            view.findViewById<TextView>(R.id.tv_company_www).apply {
-                text = it
-                visibility = View.VISIBLE
+            if (it.isNotBlank()) {
+                view.findViewById<TextView>(R.id.tv_company_www).apply {
+                    visibility = View.VISIBLE
+                    text = it
+                }
             }
         }
         company.phone?.let {
-            view.findViewById<TextView>(R.id.tv_company_phone).apply {
-                text = company.phone
-                visibility = View.VISIBLE
+            if (it.isNotBlank()) {
+                view.findViewById<TextView>(R.id.tv_company_phone).apply {
+                    visibility = View.VISIBLE
+                    text = company.phone
+                }
             }
         }
         if (company.lat > 0 && company.lon > 0) {
             view.findViewById<TextView>(R.id.tv_company_location).apply {
+                visibility = View.VISIBLE
                 // формируем кликабельную ссылку на расположение
                 isClickable = true
                 movementMethod = LinkMovementMethod.getInstance()
