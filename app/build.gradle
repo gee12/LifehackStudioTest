@@ -53,10 +53,14 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0'
 
     // retrofit
+//    def retrofit_version = "2.4.0" // попытка поддержки на API 19
     def retrofit_version = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+
+//    def okhttp_version = "3.9.1" // попытка поддержки на API 19
+    def okhttp_version = "4.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
 
     // images load
     implementation "io.coil-kt:coil:1.1.0"

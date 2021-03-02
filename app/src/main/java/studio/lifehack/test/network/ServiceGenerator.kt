@@ -1,12 +1,12 @@
 package studio.lifehack.test.network
 
 import com.google.gson.Gson
-import okhttp3.Authenticator
-import okhttp3.Interceptor
-import okhttp3.OkHttpClient
+import okhttp3.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 import java.util.concurrent.TimeUnit
+
 
 class ServiceGenerator {
 
@@ -35,17 +35,35 @@ class ServiceGenerator {
             interceptors: Array<Interceptor>
         ): OkHttpClient {
 
-            val okHttpClientBuilder = OkHttpClient().newBuilder()
+            // попытка поддержки на API 19
+//            val spec = listOf(ConnectionSpec.Builder(ConnectionSpec.COMPATIBLE_TLS)
+//                .tlsVersions(TlsVersion.TLS_1_2, TlsVersion.TLS_1_1, TlsVersion.TLS_1_0)
+//                .cipherSuites(
+//                    CipherSuite.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,
+//                    CipherSuite.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256,
+//                    CipherSuite.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,
+//                    CipherSuite.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+//                )
+//                .build())
+//            val spec = listOf(ConnectionSpec.CLEARTEXT,
+//                ConnectionSpec.Builder(ConnectionSpec.MODERN_TLS)
+//                    .allEnabledTlsVersions()
+//                    .allEnabledCipherSuites()
+//                    .build())
 
-            for (interceptor in interceptors) {
-                okHttpClientBuilder.addInterceptor(interceptor)
-            }
-            okHttpClientBuilder.connectTimeout(CONNECTION_TIMEOUT, TimeUnit.SECONDS)
-            okHttpClientBuilder.readTimeout(CONNECTION_TIMEOUT, TimeUnit.SECONDS)
-            authenticator?.let {
-                okHttpClientBuilder.authenticator(it)
-            }
-            return okHttpClientBuilder.build()
+            return OkHttpClient().newBuilder()
+//                .connectionSpecs(spec)
+                .connectTimeout(CONNECTION_TIMEOUT, TimeUnit.SECONDS)
+                .readTimeout(CONNECTION_TIMEOUT, TimeUnit.SECONDS)
+                .apply {
+                    for (interceptor in interceptors) {
+                        addInterceptor(interceptor)
+                    }
+                    authenticator?.let {
+                        authenticator(it)
+                    }
+                }
+                .build()
         }
     }
 }
