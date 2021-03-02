@@ -60,9 +60,7 @@ class ResultCall<T>(proxy: Call<T>) : CallDelegate<T, Result<T>>(proxy) {
     })
 
     override fun cloneImpl() = ResultCall(proxy.clone())
-    override fun timeout(): Timeout {
-        TODO("Not yet implemented")
-    }
+    override fun timeout() = Timeout.NONE
 }
 
 class ResultAdapter(

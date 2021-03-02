@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.text.HtmlCompat
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
 import coil.load
@@ -47,9 +46,9 @@ class DetailsFragment : BaseFragment() {
             return
         }
 
-        viewModel.company.observe(viewLifecycleOwner, Observer { updateCompany(it) })
-        viewModel.error.observe(viewLifecycleOwner, Observer { showError(it) })
-        viewModel.loadingState.observe(viewLifecycleOwner, Observer { showLoading(it) })
+        viewModel.company.observe(viewLifecycleOwner, { updateCompany(it) })
+        viewModel.error.observe(viewLifecycleOwner, { showError(it) })
+        viewModel.loadingState.observe(viewLifecycleOwner, { showLoading(it) })
 
         viewModel.loadCompany(id)
     }

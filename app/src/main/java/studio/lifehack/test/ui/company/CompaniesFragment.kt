@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.ImageLoader
@@ -41,9 +40,9 @@ class CompaniesFragment : BaseFragment() {
 
         initViews(view)
 
-        viewModel.companiesList.observe(viewLifecycleOwner, Observer { updateAdapter(it) })
-        viewModel.error.observe(viewLifecycleOwner, Observer { showError(it) })
-        viewModel.loadingState.observe(viewLifecycleOwner, Observer { showLoading(it) })
+        viewModel.companiesList.observe(viewLifecycleOwner, { updateAdapter(it) })
+        viewModel.error.observe(viewLifecycleOwner, { showError(it) })
+        viewModel.loadingState.observe(viewLifecycleOwner, { showLoading(it) })
 
         viewModel.loadCompanies()
     }
