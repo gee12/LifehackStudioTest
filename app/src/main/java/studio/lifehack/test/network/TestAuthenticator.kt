@@ -11,7 +11,7 @@ import javax.inject.Inject
 class TestAuthenticator @Inject constructor() : Authenticator {
 
     override fun authenticate(route: Route?, response: Response): Request {
-//        return response.request() // для старой версии okhttp3
-        return response.request
+        return response.request() // для старой версии okhttp3
+//        return response.request
     }
 }
