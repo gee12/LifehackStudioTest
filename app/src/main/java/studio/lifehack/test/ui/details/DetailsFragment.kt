@@ -46,6 +46,8 @@ class DetailsFragment : BaseFragment() {
             return
         }
 
+        progressBar = view.findViewById(R.id.progress_circle)
+
         viewModel.company.observe(viewLifecycleOwner, { updateCompany(it) })
         viewModel.error.observe(viewLifecycleOwner, { showError(it) })
         viewModel.loadingState.observe(viewLifecycleOwner, { showLoading(it) })

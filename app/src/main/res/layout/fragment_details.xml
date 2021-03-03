@@ -98,5 +98,16 @@
             android:textSize="16sp"
             tools:text="@tools:sample/lorem/random"/>
 
+        <ProgressBar
+            android:id="@+id/progress_circle"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"
+            android:indeterminate="true" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
