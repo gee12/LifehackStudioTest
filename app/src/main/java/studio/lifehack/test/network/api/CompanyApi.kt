@@ -1,9 +1,7 @@
 package studio.lifehack.test.network.api
 
-import retrofit2.Response
 import studio.lifehack.test.network.Result
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 import studio.lifehack.test.model.Company
 

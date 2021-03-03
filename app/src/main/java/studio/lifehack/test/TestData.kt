@@ -6,10 +6,7 @@ import javax.inject.Inject
 
 class TestData {
 
-    @Inject
-    lateinit var gson: Gson
-
-    val TEST_COMPANY: Company = gson.fromJson(
+    val TEST_COMPANY: Company = Gson().fromJson(
         "  {\n" +
                 "    \"id\": \"1\",\n" +
                 "    \"name\": \"By Park Inn.Ижевск\",\n" +
